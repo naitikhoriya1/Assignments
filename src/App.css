@@ -1,0 +1,95 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+:root {
+  --primary: #10455b;
+  --accent: #ffaf20;
+  --bg: #f9f3ed;
+  --white: #ffffff;
+  --card-radius: 18px;
+  --shadow: 0 4px 24px rgba(16, 69, 91, 0.08);
+  --font: "Inter", Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--primary);
+  font-family: var(--font);
+  margin: 0;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a.active,
+nav a:hover {
+  color: var(--accent);
+}
+
+nav {
+  background: var(--white);
+  box-shadow: var(--shadow);
+  border-radius: var(--card-radius);
+  margin: 24px auto 32px auto;
+  max-width: 700px;
+  display: flex;
+  justify-content: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: var(--primary);
+  font-family: var(--font);
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+}
