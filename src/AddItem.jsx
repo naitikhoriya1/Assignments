@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./AddItem.css";
 
 const initialState = {
   name: "",
@@ -58,60 +59,25 @@ export default function AddItem({ addItem }) {
   };
 
   return (
-    <div
-      style={{
-        padding: 24,
-        minHeight: "80vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "flex-start",
-      }}
-    >
-      <div
-        style={{
-          background: "var(--white)",
-          borderRadius: "var(--card-radius)",
-          boxShadow: "var(--shadow)",
-          padding: 32,
-          minWidth: 340,
-          maxWidth: 420,
-        }}
-      >
-        <h1 style={{ marginTop: 0 }}>Add Item</h1>
-        <form
-          onSubmit={handleSubmit}
-          style={{ display: "flex", flexDirection: "column", gap: 18 }}
-        >
-          <label style={{ fontWeight: 500 }}>
-            Item Name
+    <div className="add-item-container">
+      <div className="add-item-form-container">
+        <h1>Add Item</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
             <input
               name="name"
               value={form.name}
               onChange={handleChange}
+              placeholder="Item Name"
               required
-              style={{
-                width: "100%",
-                padding: 8,
-                borderRadius: 8,
-                border: "1px solid #e0e0e0",
-                marginTop: 4,
-              }}
             />
           </label>
-          <label style={{ fontWeight: 500 }}>
-            Item Type
+          <label>
             <select
               name="type"
               value={form.type}
               onChange={handleChange}
               required
-              style={{
-                width: "100%",
-                padding: 8,
-                borderRadius: 8,
-                border: "1px solid #e0e0e0",
-                marginTop: 4,
-              }}
             >
               <option value="">Select type</option>
               {itemTypes.map((t) => (
@@ -121,24 +87,16 @@ export default function AddItem({ addItem }) {
               ))}
             </select>
           </label>
-          <label style={{ fontWeight: 500 }}>
-            Item Description
+          <label>
             <textarea
               name="description"
               value={form.description}
               onChange={handleChange}
+              placeholder="Item Description"
               required
-              style={{
-                width: "100%",
-                padding: 8,
-                borderRadius: 8,
-                border: "1px solid #e0e0e0",
-                marginTop: 4,
-                minHeight: 60,
-              }}
             />
           </label>
-          <label style={{ fontWeight: 500 }}>
+          <label className="file-label">
             Item Cover Image
             <input
               name="coverImage"
@@ -146,22 +104,17 @@ export default function AddItem({ addItem }) {
               accept="image/*"
               onChange={handleChange}
               required
-              style={{ marginTop: 4 }}
+              className="file-input"
             />
             {coverPreview && (
               <img
                 src={coverPreview}
                 alt="cover preview"
-                style={{
-                  width: 100,
-                  marginTop: 8,
-                  borderRadius: 8,
-                  boxShadow: "var(--shadow)",
-                }}
+                className="preview-image"
               />
             )}
           </label>
-          <label style={{ fontWeight: 500 }}>
+          <label className="file-label">
             Item Additional Images
             <input
               name="additionalImages"
@@ -169,37 +122,20 @@ export default function AddItem({ addItem }) {
               accept="image/*"
               multiple
               onChange={handleChange}
-              style={{ marginTop: 4 }}
+              className="file-input"
             />
-            <div style={{ display: "flex", gap: 8, marginTop: 8 }}>
+            <div className="additional-previews">
               {additionalPreviews.map((src, i) => (
                 <img
                   key={i}
                   src={src}
                   alt="preview"
-                  style={{
-                    width: 60,
-                    borderRadius: 8,
-                    boxShadow: "var(--shadow)",
-                  }}
+                  className="additional-preview-image"
                 />
               ))}
             </div>
           </label>
-          <button
-            type="submit"
-            style={{
-              background: "var(--accent)",
-              color: "#fff",
-              border: "none",
-              padding: "10px 0",
-              borderRadius: 8,
-              fontWeight: 700,
-              fontSize: 16,
-              marginTop: 8,
-              boxShadow: "0 2px 8px rgba(255,175,32,0.12)",
-            }}
-          >
+          <button type="submit" className="btn">
             Add Item
           </button>
         </form>

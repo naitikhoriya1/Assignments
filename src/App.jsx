@@ -8,12 +8,13 @@ function App() {
   const [items, setItems] = useState([
     {
       id: 1,
-      name: "Nike Shirt",
+      name: "Nike Shoes",
       type: "Shirt",
       description: "A comfortable Nike shirt.",
-      coverImage: "https://via.placeholder.com/150",
+      coverImage:
+        "https://i.pinimg.com/736x/8b/3b/fa/8b3bfaf6d9a9ad6cc09c45f3d1b06395.jpg",
       additionalImages: [
-        "https://via.placeholder.com/300x200",
+        "https://www.nike.com/in/u/custom-nike-dunk-high-by-you-shoes-10001378",
         "https://via.placeholder.com/300x201",
       ],
     },
@@ -22,7 +23,8 @@ function App() {
       name: "Adidas Shoes",
       type: "Shoes",
       description: "Stylish Adidas running shoes.",
-      coverImage: "https://via.placeholder.com/150/0000FF/808080",
+      coverImage:
+        "https://i.pinimg.com/736x/97/26/61/972661f3a16b2b1a6bc89675da6049cd.jpg",
       additionalImages: [
         "https://via.placeholder.com/300x202",
         "https://via.placeholder.com/300x203",
@@ -39,34 +41,23 @@ function App() {
 
   return (
     <Router>
-      <nav
-        style={{
-          display: "flex",
-          gap: 16,
-          padding: 16,
-          borderBottom: "1px solid #eee",
-        }}
-      >
-        <Link to="/">View Items</Link>
-        <Link to="/add">Add Item</Link>
+      <nav className="navbar">
+        <Link to="/" className="nav-link">
+          View Items
+        </Link>
+        <Link to="/add" className="nav-link">
+          Add Item
+        </Link>
       </nav>
       {successMessage && (
-        <div
-          style={{
-            background: "#d4edda",
-            color: "#155724",
-            padding: 10,
-            margin: 10,
-            borderRadius: 4,
-          }}
-        >
-          {successMessage}
-        </div>
+        <div className="success-message">{successMessage}</div>
       )}
-      <Routes>
-        <Route path="/" element={<ViewItems items={items} />} />
-        <Route path="/add" element={<AddItem addItem={addItem} />} />
-      </Routes>
+      <main className="container">
+        <Routes>
+          <Route path="/" element={<ViewItems items={items} />} />
+          <Route path="/add" element={<AddItem addItem={addItem} />} />
+        </Routes>
+      </main>
     </Router>
   );
 }

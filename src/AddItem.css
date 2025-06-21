@@ -1,0 +1,63 @@
+/* src/AddItem.css */
+
+.add-item-container {
+  padding: 24px;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.add-item-form-container {
+  background: var(--white);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(16, 69, 91, 0.08);
+  padding: 32px;
+  min-width: 340px;
+  max-width: 420px;
+}
+
+.add-item-form-container h1 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.add-item-form-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.add-item-form-container .btn {
+  width: 100%;
+}
+
+.file-input {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+.file-label {
+  font-weight: 500;
+  text-align: left;
+}
+
+.preview-image {
+  width: 100px;
+  margin-top: 8px;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(16, 69, 91, 0.08);
+}
+
+.additional-previews {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.additional-preview-image {
+  width: 60px;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(16, 69, 91, 0.08);
+}
