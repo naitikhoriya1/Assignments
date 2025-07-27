@@ -1,0 +1,84 @@
+/* General Body Styles */
+body {
+  background-color: #f8f9fa;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 24px;
+  color: #343a40;
+}
+
+/* Main Container for the Reservations List */
+.reservations-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.reservations-container h1 {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+/* Grid layout for the list of cards */
+.reservations-list {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to a single column for mobile */
+  gap: 20px;
+}
+
+/* Individual Reservation Card Styles */
+.reservation-card {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-header h2 {
+  font-size: 20px;
+  color: #212529;
+  margin: 0 0 12px 0;
+}
+
+.card-body p {
+  font-size: 16px;
+  margin: 4px 0;
+  color: #495057;
+}
+
+.card-body p strong {
+  color: #343a40;
+}
+
+/* Cancel Button Styles */
+.cancel-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: flex-end; /* Aligns button to the right */
+  margin-top: 16px;
+  transition: background-color 0.2s;
+}
+
+.cancel-button:hover {
+  background-color: #c82333;
+}
+
+/* Responsive Design for Desktop */
+/* Applies when screen width is 1200px or more */
+@media (min-width: 1200px) {
+  .reservations-list {
+    /* Creates a three-column grid on larger screens */
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
