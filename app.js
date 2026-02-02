@@ -25,3 +25,73 @@ document.querySelector(".register-btn").addEventListener("click", function () {
 });
 
 // school
+const carousel = document.getElementById("carousel");
+let isDown = false;
+let startX;
+let scrollLeft;
+
+// Mouse drag scroll
+carousel.addEventListener("mousedown", (e) => {
+  isDown = true;
+  carousel.style.cursor = "grabbing";
+  startX = e.pageX - carousel.offsetLeft;
+  scrollLeft = carousel.scrollLeft;
+});
+
+carousel.addEventListener("mouseleave", () => {
+  isDown = false;
+  carousel.style.cursor = "grab";
+});
+
+carousel.addEventListener("mouseup", () => {
+  isDown = false;
+  carousel.style.cursor = "grab";
+});
+
+carousel.addEventListener("mousemove", (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - carousel.offsetLeft;
+  const walk = (x - startX) * 2;
+  carousel.scrollLeft = scrollLeft - walk;
+});
+
+// Touch drag scroll
+let touchStartX = 0;
+carousel.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+  scrollLeft = carousel.scrollLeft;
+});
+
+carousel.addEventListener("touchmove", (e) => {
+  const touchX = e.touches[0].clientX;
+  const walk = (touchStartX - touchX) * 2;
+  carousel.scrollLeft = scrollLeft + walk;
+});
+
+// Button scroll
+function scrollCarousel(direction) {
+  const cardWidth = 340 + 24; // card width + gap
+  carousel.scrollBy({
+    left: direction * cardWidth,
+    behavior: "smooth",
+  });
+}
+
+// reviews
+
+document.querySelectorAll(".review-card").forEach((card) => {
+  const video = card.querySelector("video");
+  const btn = card.querySelector(".play-btn");
+
+  btn.addEventListener("click", () => {
+    if (video.paused) {
+      video.play();
+      btn.style.display = "none";
+    }
+  });
+
+  video.addEventListener("pause", () => {
+    btn.style.display = "flex";
+  });
+});
