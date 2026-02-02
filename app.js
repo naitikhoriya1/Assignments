@@ -95,3 +95,41 @@ document.querySelectorAll(".review-card").forEach((card) => {
     btn.style.display = "flex";
   });
 });
+
+const section = document.querySelector(".gallery-section");
+const track = document.querySelector(".gallery-track");
+const items = document.querySelectorAll(".gallery-item");
+
+let currentX = 0;
+let targetX = 0;
+
+function getMaxScroll() {
+  return track.scrollWidth - window.innerWidth + 200;
+}
+
+window.addEventListener("scroll", () => {
+  const rect = section.getBoundingClientRect();
+
+  if (rect.top < window.innerHeight && rect.bottom > 0) {
+    const progress = 1 - rect.bottom / (window.innerHeight + rect.height);
+
+    targetX = progress * getMaxScroll();
+  }
+});
+
+function animate() {
+  // Smooth interpolation (lerp)
+  currentX += (targetX - currentX) * 0.08;
+
+  track.style.transform = `translateX(${-currentX}px)`;
+
+  // Wave animation
+  items.forEach((item, i) => {
+    const wave = Math.sin(currentX / 180 + i * 0.6) * 18;
+    item.style.transform = `translateY(${wave}px)`;
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
