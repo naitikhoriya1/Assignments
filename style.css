@@ -1684,10 +1684,8 @@ body {
   color: #fff;
   font-size: 15px;
   font-weight: 500;
-}
-
-.gallery-section {
-  padding: 120px 0;
+}.gallery-section {
+  padding: 120px 0 80px;
   background: #fff;
   overflow: hidden;
 }
@@ -1697,39 +1695,60 @@ body {
   font-size: 36px;
   font-weight: 600;
   color: #4b2aad;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 
-.gallery-wrapper {
-  height: 320px;
-  overflow: hidden;
-  position: relative;
-}
-
-.gallery-track {
+ 
+/* YOUR SCROLL CONTAINER */
+.mandatory {
+  height: 100%;
+  width: 100vw;
   display: flex;
-  gap: 40px;
-  padding: 0 10vw;
-  will-change: transform;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  padding: 20px 0;
 }
 
-.gallery-item {
-  flex: 0 0 420px;
-  height: 280px;
-  border-radius: 22px;
-  overflow: hidden;
-  will-change: transform;
+/* CARD */
+.card {
+  width: 60vw;
+  height: 50vh;
+  flex: none;
+  scroll-snap-align: center;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
-.gallery-item img {
+.card div {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  
 }
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+
+  /* height: 120px;    */
+
+}
+
+/* Hide scrollbar */
+.mandatory::-webkit-scrollbar {
+  display: none;
+}
+
+
 .footer {
   background: linear-gradient(135deg, #3c146b, #050b3c);
   color: #fff;
-  padding: 60px 6% 0;
+  padding: 60px 0 0 0;
 }
 
 .footer-inner {
@@ -1792,6 +1811,7 @@ body {
 }
 
 .footer-bottom {
+  width: 100%;
   text-align: center;
   padding: 18px 0;
   font-size: 14px;

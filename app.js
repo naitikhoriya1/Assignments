@@ -133,3 +133,38 @@ function animate() {
 }
 
 animate();
+
+
+const scroller = document.querySelector(".mandatory");
+const cards = document.querySelectorAll(".card");
+
+scroller.addEventListener("scroll", () => {
+  const scrollX = scroller.scrollLeft;
+
+  cards.forEach((card, i) => {
+    const wave = Math.sin(scrollX / 200 + i) * 12;
+    card.style.transform = `translateY(${wave}px)`;
+  });
+});
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.to(".gallery-mask", {
+  clipPath: `path(
+    "M0,60
+     Q25% 0, 50% 40
+     T100% 60
+     V100%
+     Q75% 100%, 50% 80
+     T0 100%
+     Z"
+  )`,
+  scrollTrigger: {
+    trigger: ".gallery-section",
+    start: "top center",
+    end: "bottom center",
+    scrub: true
+  },
+  ease: "none"
+});
+
